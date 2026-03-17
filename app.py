@@ -49,7 +49,7 @@ class TodoApp:
         tk.Button(btn_frame, text="Add Task", width=14, command=self._add_end).pack(
             side="left", padx=4
         )
-        tk.Button(btn_frame, text="Mark Done", width=12, command=self._mark_done).pack(
+        tk.Button(btn_frame, text="Toggle Done", width=12, command=self._mark_done).pack(
             side="left", padx=4
         )
 
@@ -138,5 +138,5 @@ class TodoApp:
         title = self._selected_title()
         if title is None:
             return
-        self.project.mark_done(title)
+        self.project.toggle_done(title)
         self._refresh_list()

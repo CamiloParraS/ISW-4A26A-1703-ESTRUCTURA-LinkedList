@@ -62,11 +62,11 @@ class Project:
             current = current.next
         return None
 
-    def mark_done(self, title: str) -> bool:
+    def toggle_done(self, title: str) -> bool:
         node = self.find_task_by_title(title)
         if node is None:
             return False
-        node.status = "done"
+        node.status = "todo" if node.status == "done" else "done"
         return True
 
     def __len__(self) -> int:
